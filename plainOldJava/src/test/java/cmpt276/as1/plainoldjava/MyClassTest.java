@@ -13,6 +13,6 @@ class MyClassTest {
 
     @Test
     void getFive() {
-        assertEquals(5, MyClass.getFive());
+        assertEquals(5, Main.getFive());
     }
 }
