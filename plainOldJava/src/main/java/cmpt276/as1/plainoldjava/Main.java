@@ -2,7 +2,7 @@ package cmpt276.as1.plainoldjava;
 
 import cmpt276.as1.plainoldjava.model.Car;
 
-public class MyClass {
+public class Main {
 //    public MyClass() {
 //    }
 //
