@@ -7,5 +7,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Game Score Calculator"
-include ':app'
 include ':plainOldJava'
