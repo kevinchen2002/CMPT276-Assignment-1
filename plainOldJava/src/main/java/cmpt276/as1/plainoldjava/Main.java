@@ -1,5 +1,9 @@
 package cmpt276.as1.plainoldjava;
 
+/*
+citation: used https://mkyong.com/java8/java-8-how-to-format-localdatetime/ for LocalDateTime formatting
+ */
+
 import org.w3c.dom.ls.LSOutput;
 
 import java.sql.SQLOutput;
@@ -8,6 +12,7 @@ import cmpt276.as1.plainoldjava.model.Car;
 import cmpt276.as1.plainoldjava.model.Game;
 import cmpt276.as1.plainoldjava.model.GameManager;
 import cmpt276.as1.plainoldjava.model.PlayerScore;
+import cmpt276.as1.plainoldjava.text.TextUI;
 
 public class Main {
 //    public MyClass() {
@@ -40,9 +45,16 @@ public class Main {
         g1.playGame(2, 10, 30, 2);
         System.out.println("\nGame time: " + g1.getTime());
         System.out.println("Game highscore: " + g1.getHighscore());
-        System.out.println("Game winner: player " + g1.getWinner());
+        System.out.println("Game winner: player(s) " + g1.getWinners());
 
+        //TESTING GAME MANAGER
         GameManager manager = new GameManager();
+        manager.add(g1);
+
+        TextUI ui = new TextUI(manager);
+        ui.showMenu();
+
+
 
     }
 

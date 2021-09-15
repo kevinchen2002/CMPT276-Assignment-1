@@ -1,6 +1,9 @@
 package cmpt276.as1.plainoldjava.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents one game played by 1 to 4 players
@@ -9,33 +12,49 @@ import java.time.LocalDateTime;
 public class Game {
     private LocalDateTime time;
     private int highscore;
-    private int winner;
+    private ArrayList<Integer> scores;
+    private ArrayList<Integer> winners;
     //possibly unused
-    //private int numPlayers;
+    private int numPlayers;
 
     public Game() {
         time = LocalDateTime.now();
-        highscore = 0;
-        winner = 0;
+        time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        scores = new ArrayList<>();
+        winners = new ArrayList<>();
+        highscore = Integer.MIN_VALUE;
+        numPlayers = 0;
     }
 
     public void playGame(int player, int numCards, int cardPoints, int numWagers) {
         PlayerScore pscore = new PlayerScore(numCards, cardPoints, numWagers);
+//        //Number score = new Number(pscore.getScore());
+//
+        scores.add(pscore.getScore());
         if (pscore.getScore() > highscore) {
             highscore = pscore.getScore();
-            winner = player;
+            winners.clear();
+            winners.add(player);
+        }
+        else if (pscore.getScore() == highscore) {
+            winners.add(player);
         }
     }
 
-    public LocalDateTime getTime() {
-        return time;
+    public String getTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return time.format(formatter);
     }
 
     public int getHighscore() {
         return highscore;
     }
 
-    public int getWinner() {
-        return winner;
+    public ArrayList<Integer> getScores() {
+        return scores;
+    }
+
+    public ArrayList<Integer> getWinners() {
+        return winners;
     }
 }
