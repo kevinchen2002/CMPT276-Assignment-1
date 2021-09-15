@@ -47,9 +47,15 @@ public class Main {
         System.out.println("Game highscore: " + g1.getHighscore());
         System.out.println("Game winner: player(s) " + g1.getWinners());
 
+        Game g2 = new Game();
+        g2.playGame(1, 5, 40, 2);
+        g2.playGame(2, 4, 40, 2);
+        g2.playGame(3,2,10,1);
+
         //TESTING GAME MANAGER
         GameManager manager = new GameManager();
         manager.add(g1);
+        manager.add(g2);
 
         TextUI ui = new TextUI(manager);
         ui.showMenu();

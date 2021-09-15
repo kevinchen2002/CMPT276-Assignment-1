@@ -94,16 +94,30 @@ public class TextUI {
                     break;
 
                 case 3:
-                    System.out.println("case 3");
+
+                    int listSize = manager.getSize();
+
+                    int deleteIndex = -1;
+                    while (deleteIndex < 0 || deleteIndex > listSize) {
+                        System.out.println("Which game to delete? (0 for none)\n");
+                        deleteIndex = in.nextInt();
+                    }
+
+                    if (deleteIndex == 0) {
+                        break;
+                    }
+
+                    manager.delete(deleteIndex);
+                    System.out.println("Game " + deleteIndex + " deleted.");
+                    break;
 
                 case 0:
                     isDone = true;
+                    break;
 
                 default:
                     System.out.println("Pick one of the above options!");
             }
         }
-
-
     }
 }

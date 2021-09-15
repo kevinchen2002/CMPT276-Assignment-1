@@ -23,6 +23,14 @@ public class GameManager implements Iterable<Game>{
         return gameList;
     }
 
+    public int getSize() {
+        return gameList.size();
+    }
+
+    public void delete(int index) {
+        gameList.remove(index-1);
+    }
+
     @Override
     public Iterator<Game> iterator() {
         return gameList.iterator();
