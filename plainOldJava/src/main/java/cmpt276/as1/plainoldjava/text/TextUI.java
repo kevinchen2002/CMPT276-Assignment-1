@@ -14,6 +14,23 @@ public class TextUI {
         this.manager = manager;
     }
 
+    //helper function for displaying a game
+    private void displayGame(Game game, int count) {
+        ArrayList<Integer> scores = game.getScores();
+        int gameNum = count+1;
+        System.out.println("\n\n" + gameNum + ". ");
+        for (int i = 0; i < scores.size(); i++) {
+            if (i != scores.size()-1) {
+                System.out.print(scores.get(i) + " vs. ");
+            }
+            else {
+                System.out.print(scores.get(i));
+            }
+        }
+        System.out.print(", winner player(s): " + game.getWinners());
+        System.out.print(", " + game.getTime());
+    }
+
     public void showMenu() {
         boolean isDone = false;
         while (!isDone) {
@@ -31,19 +48,7 @@ public class TextUI {
                     //for each loop to access each game
                     int count = 0;
                     for (Game game : gameList) {
-                        ArrayList<Integer> scores = game.getScores();
-                        int gameNum = count+1;
-                        System.out.println("\n\n" + gameNum + ". ");
-                        for (int i = 0; i < scores.size(); i++) {
-                            if (i != scores.size()-1) {
-                                System.out.print(scores.get(i) + " vs. ");
-                            }
-                            else {
-                                System.out.print(scores.get(i));
-                            }
-                        }
-                        System.out.print(", winner player(s): " + game.getWinners());
-                        System.out.print(", " + game.getTime());
+                        displayGame(game, count);
                         count++;
                     }
                     break;
@@ -77,18 +82,7 @@ public class TextUI {
                         }
                         game.playGame(i+1, numCards, cardPoints, wagers);
                     }
-                    //print out the game
-                    ArrayList<Integer> scores = game.getScores();
-                    for (int i = 0; i < scores.size(); i++) {
-                        if (i != scores.size()-1) {
-                            System.out.print(scores.get(i) + " vs. ");
-                        }
-                        else {
-                            System.out.print(scores.get(i));
-                        }
-                    }
-                    System.out.print(", winner player(s): " + game.getWinners());
-                    System.out.print(", " + game.getTime());
+                    displayGame(game, 0);
 
                     manager.add(game);
                     break;
