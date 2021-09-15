@@ -9,6 +9,8 @@ import cmpt276.as1.plainoldjava.model.GameManager;
 
 public class TextUI {
     private GameManager manager;
+    private final int MINPLAYERS = 1;
+    private final int MAXPLAYERS = 4;
 
     public TextUI(GameManager manager) {
         this.manager = manager;
@@ -56,7 +58,7 @@ public class TextUI {
                 case 2:
 
                     int numPlayers = 0;
-                    while (numPlayers < 1 || numPlayers > 4) {
+                    while (numPlayers < MINPLAYERS || numPlayers > MAXPLAYERS) {
                         System.out.println("How many players? (must be between 1 and 4)\n");
                         numPlayers = in.nextInt();
                     }
