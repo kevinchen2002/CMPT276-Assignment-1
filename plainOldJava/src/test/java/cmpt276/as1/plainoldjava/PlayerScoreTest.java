@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import cmpt276.as1.plainoldjava.model.PlayerScore;
 
+/**
+ * Test cases for PlayerScore class
+ */
+
 class PlayerScoreTest {
 
     @Test
@@ -41,7 +45,7 @@ class PlayerScoreTest {
     @Test
     void test6() {
         //should throw exception
-        PlayerScore test6 = new PlayerScore(0,10,1);
+        assertThrows(IllegalArgumentException.class,() -> new PlayerScore(0,10,1));
     }
 
     @Test
@@ -53,18 +57,18 @@ class PlayerScoreTest {
     @Test
     void paramtest1() {
         //should throw exception
-        PlayerScore test8 = new PlayerScore(-2,10,1);
+        assertThrows(IllegalArgumentException.class,() -> new PlayerScore(-2,10,1));
     }
 
     @Test
     void paramtest2() {
         //should throw exception
-        PlayerScore test9 = new PlayerScore(5,-10,1);
+        assertThrows(IllegalArgumentException.class,() -> new PlayerScore(5,-10,1));
     }
 
     @Test
     void paramtest3() {
         //should throw exception
-        PlayerScore test10 = new PlayerScore(2,10,-1);
+        assertThrows(IllegalArgumentException.class,() -> new PlayerScore(2,10,-1));
     }
 }

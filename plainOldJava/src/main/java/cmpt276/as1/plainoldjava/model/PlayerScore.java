@@ -1,5 +1,9 @@
 package cmpt276.as1.plainoldjava.model;
 
+/**
+ * Stores information about a single player's score
+ */
+
 public class PlayerScore {
     private int numCards;
     private int cardPoints;

@@ -7,6 +7,10 @@ import java.util.Scanner;
 import cmpt276.as1.plainoldjava.model.Game;
 import cmpt276.as1.plainoldjava.model.GameManager;
 
+/**
+ * User interacts with the UI to use model classes
+ */
+
 public class TextUI {
     private GameManager manager;
     private final int MINPLAYERS = 1;
