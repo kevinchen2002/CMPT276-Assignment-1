@@ -36,6 +36,4 @@ public class PlayerScore {
         }
         return Score;
     }
-
-    //alt insert to insert stuff
 }

@@ -44,8 +44,12 @@ public class TextUI {
             int choice = in.nextInt();
 
             switch (choice) {
+                //case 1: viewing all games
                 case 1:
                     List<Game> gameList = manager.getAllGames();
+                    if (gameList.isEmpty()) {
+                        System.out.println("NO GAMES");
+                    }
 
                     //for each loop to access each game
                     int count = 0;
@@ -55,8 +59,8 @@ public class TextUI {
                     }
                     break;
 
+                //case 2: adding new games
                 case 2:
-
                     int numPlayers = 0;
                     while (numPlayers < MINPLAYERS || numPlayers > MAXPLAYERS) {
                         System.out.println("How many players? (must be between 1 and 4)\n");
@@ -68,19 +72,26 @@ public class TextUI {
                     for (int i = 0; i < numPlayers; i++) {
                         int playerNum = i + 1;
                         System.out.println("Player " + playerNum + ": ");
-                        System.out.println("    How many cards?");
-                        int numCards = in.nextInt();
-                        int cardPoints;
-                        int wagers;
+                        int numCards = -1;
+                        while (numCards < 0) {
+                            System.out.println("    How many cards?");
+                            numCards = in.nextInt();
+                        }
+                        int cardPoints = -1;
+                        int wagers = -1;
                         if (numCards == 0) {
                             cardPoints = 0;
                             wagers = 0;
                         }
                         else {
-                            System.out.println("    Sum of cards?");
-                            cardPoints = in.nextInt();
-                            System.out.println("    How many wagers?");
-                            wagers = in.nextInt();
+                            while (cardPoints < 0) {
+                                System.out.println("    Sum of cards?");
+                                cardPoints = in.nextInt();
+                            }
+                            while (wagers < 0) {
+                                System.out.println("    How many wagers?");
+                                wagers = in.nextInt();
+                            }
                         }
                         game.playGame(i+1, numCards, cardPoints, wagers);
                     }
@@ -89,6 +100,7 @@ public class TextUI {
                     manager.add(game);
                     break;
 
+                //case 3: deleting a game
                 case 3:
 
                     int listSize = manager.getSize();
@@ -107,10 +119,12 @@ public class TextUI {
                     System.out.println("Game " + deleteIndex + " deleted.");
                     break;
 
+                //case 0: exiting the menu
                 case 0:
                     isDone = true;
                     break;
 
+                //default case: a number outside of the range 0 - 3 was picked
                 default:
                     System.out.println("Pick one of the above options!");
             }

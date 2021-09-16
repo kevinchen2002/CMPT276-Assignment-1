@@ -14,8 +14,6 @@ public class Game {
     private int highscore;
     private ArrayList<Integer> scores;
     private ArrayList<Integer> winners;
-    //possibly unused
-    private int numPlayers;
 
     public Game() {
         time = LocalDateTime.now();
@@ -23,13 +21,11 @@ public class Game {
         scores = new ArrayList<>();
         winners = new ArrayList<>();
         highscore = Integer.MIN_VALUE;
-        numPlayers = 0;
     }
 
     public void playGame(int player, int numCards, int cardPoints, int numWagers) {
         PlayerScore pscore = new PlayerScore(numCards, cardPoints, numWagers);
-//        //Number score = new Number(pscore.getScore());
-//
+
         scores.add(pscore.getScore());
         if (pscore.getScore() > highscore) {
             highscore = pscore.getScore();
@@ -44,10 +40,6 @@ public class Game {
     public String getTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return time.format(formatter);
-    }
-
-    public int getHighscore() {
-        return highscore;
     }
 
     public ArrayList<Integer> getScores() {
