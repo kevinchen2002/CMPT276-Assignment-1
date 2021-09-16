@@ -4,26 +4,13 @@ package cmpt276.as1.plainoldjava;
 citation: used https://mkyong.com/java8/java-8-how-to-format-localdatetime/ for LocalDateTime formatting
  */
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
-
-import cmpt276.as1.plainoldjava.model.Car;
 import cmpt276.as1.plainoldjava.model.Game;
 import cmpt276.as1.plainoldjava.model.GameManager;
 import cmpt276.as1.plainoldjava.model.PlayerScore;
 import cmpt276.as1.plainoldjava.text.TextUI;
 
 public class Main {
-//    public MyClass() {
-//    }
-//
-//    public static void main(String[] args) {
-//        System.out.println("Hello Java world from Android Studio!");
-//
-//        Car myCar = new Car("Some epic thing!");
-//        System.out.println(myCar.getModel());
-//    }
+
     public static int getFive() {
         return 5;
     }
