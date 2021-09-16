@@ -26,6 +26,9 @@ public class PlayerScore {
     }
 
     public int getScore() {
+        if (numCards == 0) {
+            return 0;
+        }
         int Score = cardPoints - 20;
         Score *= (numWagers + 1);
         if (numCards + numWagers >= 8) {

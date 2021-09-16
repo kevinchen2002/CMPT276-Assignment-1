@@ -11,10 +11,6 @@ import cmpt276.as1.plainoldjava.text.TextUI;
 
 public class Main {
 
-    public static int getFive() {
-        return 5;
-    }
-
     public static void main(String[] args) {
 
         System.out.println("Hello world, from Java only!");
