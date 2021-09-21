@@ -15,8 +15,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello world, from Java only!");
-
         GameManager manager = new GameManager();
 
         TextUI ui = new TextUI(manager);
