@@ -9,6 +9,9 @@ public class PlayerScore {
     private int cardPoints;
     private int numWagers;
 
+    private final int POINT_DIFF = 20;
+    private final int CARD_BONUS = 8;
+
     public PlayerScore(int numCards, int cardPoints, int numWagers) {
         if (numCards < 0) {
             throw new IllegalArgumentException("Number of cards must be non-negative");
@@ -33,10 +36,10 @@ public class PlayerScore {
         if (numCards == 0) {
             return 0;
         }
-        int Score = cardPoints - 20;
+        int Score = cardPoints - POINT_DIFF;
         Score *= (numWagers + 1);
-        if (numCards + numWagers >= 8) {
-            Score += 20;
+        if (numCards + numWagers >= CARD_BONUS) {
+            Score += POINT_DIFF;
         }
         return Score;
     }
