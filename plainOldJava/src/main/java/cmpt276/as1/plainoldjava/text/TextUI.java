@@ -45,7 +45,12 @@ public class TextUI {
                     "3. Delete game\n" +
                     "0. Exit\n:");
             Scanner in = new Scanner(System.in);
-            int choice = in.nextInt();
+            int choice = 0;
+            try {
+                choice = Integer.parseInt(in.nextLine());
+            } catch (NumberFormatException nfe) {
+                System.out.println("Not an integer");
+            }
 
             switch (choice) {
                 //case 1: viewing all games
@@ -68,7 +73,11 @@ public class TextUI {
                     int numPlayers = 0;
                     while (numPlayers < MINPLAYERS || numPlayers > MAXPLAYERS) {
                         System.out.println("How many players? (must be between 1 and 4)\n");
-                        numPlayers = in.nextInt();
+                        try {
+                            numPlayers = Integer.parseInt(in.nextLine());
+                        } catch (NumberFormatException nfe) {
+                            System.out.println("Not an integer");
+                        }
                     }
 
                     Game game = new Game();
@@ -79,7 +88,11 @@ public class TextUI {
                         int numCards = -1;
                         while (numCards < 0) {
                             System.out.println("    How many cards?");
-                            numCards = in.nextInt();
+                            try {
+                                numCards = Integer.parseInt(in.nextLine());
+                            } catch (NumberFormatException nfe) {
+                                System.out.println("Not an integer");
+                            }
                         }
                         int cardPoints = -1;
                         int wagers = -1;
@@ -90,11 +103,19 @@ public class TextUI {
                         else {
                             while (cardPoints < 0) {
                                 System.out.println("    Sum of cards?");
-                                cardPoints = in.nextInt();
+                                try {
+                                    cardPoints = Integer.parseInt(in.nextLine());
+                                } catch (NumberFormatException nfe) {
+                                    System.out.println("Not an integer");
+                                }
                             }
                             while (wagers < 0) {
                                 System.out.println("    How many wagers?");
-                                wagers = in.nextInt();
+                                try {
+                                    wagers = Integer.parseInt(in.nextLine());
+                                } catch (NumberFormatException nfe) {
+                                    System.out.println("Not an integer");
+                                }
                             }
                         }
                         game.playGame(i+1, numCards, cardPoints, wagers);
@@ -112,7 +133,11 @@ public class TextUI {
                     int deleteIndex = -1;
                     while (deleteIndex < 0 || deleteIndex > listSize) {
                         System.out.println("Which game to delete? (0 for none)\n");
-                        deleteIndex = in.nextInt();
+                        try {
+                            deleteIndex = Integer.parseInt(in.nextLine());
+                        } catch (NumberFormatException nfe) {
+                            System.out.println("Not an integer");
+                        }
                     }
 
                     if (deleteIndex == 0) {
