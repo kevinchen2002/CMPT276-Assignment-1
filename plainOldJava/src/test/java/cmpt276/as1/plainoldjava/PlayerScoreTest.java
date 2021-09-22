@@ -55,6 +55,12 @@ class PlayerScoreTest {
     }
 
     @Test
+    void test8() {
+        PlayerScore test8 = new PlayerScore(1,20,5);
+        assertEquals(0, test8.getScore());
+    }
+
+    @Test
     void paramtest1() {
         //should throw exception
         assertThrows(IllegalArgumentException.class,() -> new PlayerScore(-2,10,1));
