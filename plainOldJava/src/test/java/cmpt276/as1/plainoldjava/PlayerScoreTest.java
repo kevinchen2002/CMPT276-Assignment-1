@@ -2,6 +2,7 @@ package cmpt276.as1.plainoldjava;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import cmpt276.as1.plainoldjava.model.PlayerScore;
